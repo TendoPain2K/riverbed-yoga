@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Workshops and Events | Riverbend Yoga Studio</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -35,38 +36,58 @@
         <figcaption>Learn with others in a welcoming Riverbend yoga workshop.</figcaption>
       </figure>
     </section>
+    <section class="wide" id="class-preference">
+      <h2>Find Your Class</h2>
+      <p>Choose a class to see who it suits. Save your preference to remember it on this browser.</p>
+      <label for="preferred-class">Preferred class</label>
+      <select id="preferred-class">
+        <option value="gentle">Gentle Yoga</option>
+        <option value="vinyasa">Vinyasa Yoga</option>
+        <option value="restorative">Restorative Yoga</option>
+      </select>
+      <p id="class-details" aria-live="polite"></p>
+      <div class="preference-actions">
+        <button id="save-preference" type="button">Save preference</button>
+        <button id="clear-preference" type="button">Clear saved preference</button>
+      </div>
+      <p id="preference-status" role="status"></p>
+      <noscript><p>Enable JavaScript to see class recommendations and save a preference.</p></noscript>
+    </section>
     <section id="interest-form">
       <h2>Request a Spot</h2>
       <p>Required fields are marked with an asterisk (*).</p>
-      <p>This practice form demonstrates HTML validation.
+      <p>This practice form checks your details.
         It does not send a request or reserve a place.</p>
-      <form action="events.html#interest-form" method="get">
+      <form id="request-form" action="events.html#interest-form" method="get">
         <fieldset>
           <legend>Your Contact Information</legend>
           <p>
             <label for="name">Name *</label>
-            <input type="text" id="name" name="name"
+            <input type="text" id="name" aria-describedby="name-error" name="name"
               autocomplete="name" minlength="2" maxlength="80" required>
+            <span class="field-error" id="name-error" aria-live="polite"></span>
           </p>
           <p>
             <label for="email">Email *</label>
-            <input type="email" id="email" name="email"
+            <input type="email" id="email" aria-describedby="email-error" name="email"
               autocomplete="email" required>
+            <span class="field-error" id="email-error" aria-live="polite"></span>
           </p>
           <p>
             <label for="contact-method">Preferred contact method *</label>
-            <select id="contact-method" name="contact-method" required>
+            <select id="contact-method" aria-describedby="contact-method-error" name="contact-method" required>
               <option value="">Choose a contact method</option>
               <option value="email">Email</option>
               <option value="in-person">In person at the studio</option>
             </select>
+            <span class="field-error" id="contact-method-error" aria-live="polite"></span>
           </p>
         </fieldset>
         <fieldset>
           <legend>Your Yoga Interests</legend>
           <p>
             <label for="interest">Class or event interest *</label>
-            <select id="interest" name="interest" required>
+            <select id="interest" aria-describedby="interest-error" name="interest" required>
               <option value="">Choose a class or workshop</option>
               <option value="gentle">Gentle Yoga</option>
               <option value="vinyasa">Vinyasa Yoga</option>
@@ -76,23 +97,27 @@
               <option value="breathing">November Breathing Workshop</option>
               <option value="restorative-workshop">December Restorative Workshop</option>
             </select>
+            <span class="field-error" id="interest-error" aria-live="polite"></span>
           </p>
           <p>
             <label for="experience">Experience level *</label>
-            <select id="experience" name="experience" required>
+            <select id="experience" aria-describedby="experience-error" name="experience" required>
               <option value="">Choose your experience level</option>
               <option value="new">New to yoga</option>
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
               <option value="experienced">Experienced</option>
             </select>
+            <span class="field-error" id="experience-error" aria-live="polite"></span>
           </p>
           <p>
             <label for="message">Message *</label>
-            <textarea id="message" name="message" rows="5" cols="35"
+            <textarea id="message" aria-describedby="message-error" name="message" rows="5" cols="35"
               minlength="10" maxlength="1000" required></textarea>
+            <span class="field-error" id="message-error" aria-live="polite"></span>
           </p>
         </fieldset>
+        <p id="form-status" role="status"></p>
         <button type="submit">Request a spot</button>
       </form>
     </section>

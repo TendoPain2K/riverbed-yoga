@@ -143,3 +143,10 @@ footer p { margin-bottom: 0.5rem; }
   .class-list { flex-direction: row; }
   .class-card { flex: 1; min-width: 0; }
 }
+
+/* JavaScript feature and field feedback use the existing palette. */
+.preference-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.field-error { display: block; font-weight: bold; margin-top: .35rem; }
+.field-error:empty { display: none; }
+[aria-invalid="true"] { border: 3px solid #31564A; }
+#form-status, #preference-status { font-weight: bold; }
